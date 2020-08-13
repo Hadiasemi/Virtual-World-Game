@@ -30,6 +30,7 @@ public final class WorldView
         return Math.min(high, Math.max(value, low));
     }
 
+
     public  void shiftView( int colDelta, int rowDelta) {
         int newCol = clamp(this.viewport.getCol() + colDelta, 0,
                 this.world.getNumCols() - this.viewport.getNumCols());

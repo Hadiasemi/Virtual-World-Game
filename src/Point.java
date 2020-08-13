@@ -2,8 +2,8 @@ import java.util.Optional;
 
 public final class Point
 {
-    public final int x;
-    public final int y;
+    public int x;
+    public int y;
 
     public Point(int x, int y) {
         this.x = x;
@@ -24,6 +24,12 @@ public final class Point
         result = result * 31 + x;
         result = result * 31 + y;
         return result;
+    }
+
+    public void translate(int dx, int dy)
+    {
+        this.x += dx;
+        this.y += dy;
     }
 
 

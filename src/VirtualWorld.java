@@ -40,6 +40,10 @@ public final class VirtualWorld extends PApplet
     private WorldView view;
     private EventScheduler scheduler;
 
+    // Used to figure out where we are in the viewport.
+    private int dx = 0;
+    private int dy = 0;
+
     private long nextTime;
 
     public void settings() {
@@ -77,6 +81,8 @@ public final class VirtualWorld extends PApplet
         this.view.drawViewport();
     }
 
+
+
     public void keyPressed() {
         if (key == CODED) {
             int dx = 0;
@@ -97,6 +103,11 @@ public final class VirtualWorld extends PApplet
                     break;
             }
             view.shiftView( dx, dy);
+
+            if (this.dx < 0) this.dx = 0;
+            else this.dx += dx;
+            if (this.dy < 0) this.dy = 0;
+            else this.dy += dy;
         }
     }
     /*
@@ -113,9 +124,23 @@ public final class VirtualWorld extends PApplet
 
      */
 
+    // This just prints out the coordinate of a point.
     public void  mousePressed(){
-        System.out.println("Hello");
+        Point pressed = mouseToPoint(mouseX, mouseY);
+        System.out.println(pressed.x + " " + pressed.y);
     }
+
+    // This is the function that returns a point. This is the one
+    // we will be using.
+    private Point mouseToPoint(int x, int y) {
+
+        Point newMouse = new Point(mouseX/32, mouseY/32);
+        newMouse.translate(this.dx, this.dy);
+        if (newMouse.x < 0) newMouse.x = 0;
+        if (newMouse.y < 0) newMouse.y = 0;
+        return newMouse;
+    }
+
 
     public static Background createDefaultBackground(ImageStore imageStore) {
         return new Background(DEFAULT_IMAGE_NAME,

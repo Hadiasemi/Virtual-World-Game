@@ -75,7 +75,6 @@ public final class WorldModel
 
 
 
-
     public void moveEntity( Entity entity, Point pos) {
         Point oldPos = entity.getPosition();
         if (this.withinBounds(pos) && !pos.equals(oldPos)) {
