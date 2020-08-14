@@ -12,8 +12,6 @@ public abstract class EntityResource extends EntityImage{
 
     }
 
-
-
     protected void  _move(WorldModel world,
                          EventScheduler scheduler,Point nextPos){
 
