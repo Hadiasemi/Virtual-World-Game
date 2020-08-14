@@ -29,7 +29,6 @@ public final class Background
         }
     }
 
-
     public  PImage getCurrentImage() {
 
             return this.images.get(

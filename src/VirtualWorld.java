@@ -57,13 +57,17 @@ public final class VirtualWorld extends PApplet
         this.imageStore = new ImageStore(
                 createImageColored(TILE_WIDTH, TILE_HEIGHT,
                         DEFAULT_IMAGE_COLOR));
+
         this.world = new WorldModel(WORLD_ROWS, WORLD_COLS,
                 createDefaultBackground(imageStore));
+
         this.view = new WorldView(VIEW_ROWS, VIEW_COLS, this, world, TILE_WIDTH,
                 TILE_HEIGHT);
+
         this.scheduler = new EventScheduler(timeScale);
 
         loadImages(IMAGE_LIST_FILE_NAME, imageStore, this);
+
         loadWorld(world, LOAD_FILE_NAME, imageStore);
 
         scheduleActions(world, scheduler, imageStore);
@@ -104,6 +108,7 @@ public final class VirtualWorld extends PApplet
             }
             view.shiftView( dx, dy);
 
+            // This is a check that may or may not be necessary...
             if (this.dx < 0) this.dx = 0;
             else this.dx += dx;
             if (this.dy < 0) this.dy = 0;
@@ -124,9 +129,20 @@ public final class VirtualWorld extends PApplet
 
      */
 
+    // THIS ALL MIGHT MOVE TO A MOUSE CLASS!!!
+
+
     // This just prints out the coordinate of a point.
     public void  mousePressed(){
+
         Point pressed = mouseToPoint(mouseX, mouseY);
+
+
+        Entity ent = Factory.createObstacle(pressed,
+                imageStore.getImageList("red"));
+
+        world.addEntity(ent);
+
         System.out.println(pressed.x + " " + pressed.y);
     }
 
@@ -136,6 +152,9 @@ public final class VirtualWorld extends PApplet
 
         Point newMouse = new Point(mouseX/32, mouseY/32);
         newMouse.translate(this.dx, this.dy);
+
+        // This checks if we are out-of-bounds of the current frame
+        // of the viewport.
         if (newMouse.x < 0) newMouse.x = 0;
         if (newMouse.y < 0) newMouse.y = 0;
         return newMouse;

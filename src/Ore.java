@@ -13,15 +13,12 @@ public class Ore extends ActionEntity {
 
     private String id;
 
-
     public Ore(Point position, List<PImage> images, int imageIndex, int actionPeriod, String id) {
         super(position, images, imageIndex, actionPeriod);
         this.id = id;
     }
 
-
-
-    protected   void executeActivity(
+    protected void executeActivity(
 
             WorldModel world,
             ImageStore imageStore,
@@ -36,15 +33,12 @@ public class Ore extends ActionEntity {
 
         this.id + BLOB_ID_SUFFIX, pos,
         this.getActionPeriod() / BLOB_PERIOD_SCALE,
-        BLOB_ANIMATION_MIN + Functions.rand.nextInt(
-                BLOB_ANIMATION_MAX
-                        - BLOB_ANIMATION_MIN),
-        imageStore.getImageList(BLOB_KEY));
+        BLOB_ANIMATION_MIN +
+                Functions.rand.nextInt(BLOB_ANIMATION_MAX - BLOB_ANIMATION_MIN),
+                imageStore.getImageList(BLOB_KEY));
 
         world.addEntity( blob);
         blob.scheduleActions( scheduler, world, imageStore);
     }
-
-
 
 }

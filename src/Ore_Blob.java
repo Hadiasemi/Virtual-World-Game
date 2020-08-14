@@ -8,17 +8,13 @@ public class Ore_Blob extends EntityResource{
     private final String QUAKE_KEY = "quake";
 
     public Ore_Blob(
-
-
             Point position,
             List<PImage> images,
             int actionPeriod,
             int animationPeriod,int imageIndex)
     {
         super(position, images, imageIndex, actionPeriod, animationPeriod);
-
     }
-
 
     protected   void executeActivity(
 
@@ -48,10 +44,6 @@ public class Ore_Blob extends EntityResource{
                 nextPeriod);
     }
 
-
-
-
-
     protected   boolean move(
 
             WorldModel world,
@@ -70,7 +62,6 @@ public class Ore_Blob extends EntityResource{
             return false;
         }
     }
-
 
     public  Point nextPositionOreBlob(
              WorldModel world, Point destPos)

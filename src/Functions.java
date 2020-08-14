@@ -12,7 +12,6 @@ public final class Functions
 {
     public static final Random rand = new Random();
 
-
     public static final int COLOR_MASK = 0xffffff;
     public static final int KEYED_IMAGE_MIN = 5;
     private static final int KEYED_RED_IDX = 2;
@@ -61,9 +60,6 @@ public final class Functions
     public static final int VEIN_COL = 2;
     public static final int VEIN_ROW = 3;
     public static final int VEIN_ACTION_PERIOD = 4;
-
-
-
 
     public static void loadImages(
             Scanner in, ImageStore imageStore, PApplet screen)
@@ -130,10 +126,6 @@ public final class Functions
         }
         img.updatePixels();
     }
-
-
-
-
 
     public static void load(
             Scanner in, WorldModel world, ImageStore imageStore)

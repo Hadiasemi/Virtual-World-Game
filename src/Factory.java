@@ -35,7 +35,7 @@ public class Factory {
             int animationPeriod,
             List<PImage> images)
     {
-        return new Ore_Blob(  position, images, actionPeriod, animationPeriod,0);
+        return new Ore_Blob(position, images, actionPeriod, animationPeriod,0);
     }
 
 
