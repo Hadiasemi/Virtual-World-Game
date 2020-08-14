@@ -25,6 +25,7 @@ quake images/quake6.bmp 255 255 255 0
 ore images/ore.bmp 201 26 26 0
 obstacle images/obstacle.bmp
 grass images/grass.bmp
+red images/red.bmp
 rocks images/rock.bmp
 dirt images/dirt.bmp
 vein images/vein.bmp
