@@ -1,7 +1,7 @@
 import java.util.List;
 import processing.core.*;
 
-public class Fish extends Obstacle {
+public class Fish extends Entity {
 
     public Fish(Point pos,
                 List<PImage> images,

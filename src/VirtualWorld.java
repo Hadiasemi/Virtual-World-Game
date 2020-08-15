@@ -121,8 +121,8 @@ public final class VirtualWorld extends PApplet
             else this.dy += dy;
         }
     }
-    /*
 
+    /*
     Build new Entity class extend EntityResource
         move, animate function, executeAc , It is really similar to or blob
 
@@ -136,10 +136,6 @@ public final class VirtualWorld extends PApplet
      */
 
     // THIS ALL MIGHT MOVE TO A MOUSE CLASS!!!
-
-
-
-
     public void  mousePressed(){
 
         Point pressed = mouseToPoint(mouseX, mouseY);
@@ -150,19 +146,24 @@ public final class VirtualWorld extends PApplet
             flag.makeFlag(new Point(pressed.x, pressed.y),
                     "green", "white", "red");
 
-            world.addEntity(new Fish(new Point(pressed.x + 5, pressed.y + 3),
+            world.addEntity(new Fish(new Point(pressed.x + 4, pressed.y + 3),
                     imageStore.getImageList("fish"), 0));
+
+            world.addEntity(new Coin(new Point(pressed.x + 6, pressed.y + 3),
+                    imageStore.getImageList("coin"), 0));
+
+            world.addEntity(new Apple(new Point(pressed.x + 7, pressed.y + 3),
+                    imageStore.getImageList("apple"), 0));
+
 
             is_pressed = true;
 
         }
 
         else {
-            boolean is_occupied = world.isOccupied(pressed);
             Optional<Entity> entity = world.getOccupant(pressed);
             Entity entity1 = entity.get();
             System.out.println(entity1.toString());
-            System.out.println(is_occupied);
         }
 
         System.out.println(pressed.x + " " + pressed.y);
