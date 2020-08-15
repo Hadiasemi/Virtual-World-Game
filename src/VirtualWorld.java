@@ -151,6 +151,19 @@ public final class VirtualWorld extends PApplet
                     imageStore.getImageList("green"));
             Background white = new Background("white",
                     imageStore.getImageList("white"));
+            Background red = new Background("red",
+                    imageStore.getImageList("red"));
+
+
+            for (int i = 0; i < 10; i++)
+            {
+                green.setBackground(world, temp_pressed);
+                white.setBackground(world,
+                        new Point(temp_pressed.x, temp_pressed.y + 1));
+                red.setBackground(world,
+                        new Point(temp_pressed.x, temp_pressed.y + 2));
+                temp_pressed.x += 1;
+            }
 
             world.addEntity(new Fish(temp_pressed,
                     imageStore.getImageList("fish"), 0));
