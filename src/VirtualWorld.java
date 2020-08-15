@@ -1,5 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import processing.core.*;
@@ -43,6 +46,8 @@ public final class VirtualWorld extends PApplet
     // Used to figure out where we are in the viewport.
     private int dx = 0;
     private int dy = 0;
+
+    private boolean is_pressed = false;
 
     private long nextTime;
 
@@ -133,16 +138,17 @@ public final class VirtualWorld extends PApplet
 
 
     // This just prints out the coordinate of a point.
+
     public void  mousePressed(){
 
         Point pressed = mouseToPoint(mouseX, mouseY);
+        if (!is_pressed) {
 
+            world.addEntity(new Flag(pressed, imageStore.getImageList("iran"),
+                    0));
+            is_pressed = true;
 
-        Entity ent = Factory.createObstacle(pressed,
-                imageStore.getImageList("red"));
-
-        world.addEntity(ent);
-
+        }
         System.out.println(pressed.x + " " + pressed.y);
     }
 

@@ -1,5 +1,7 @@
 import processing.core.PImage;
 
+import javax.lang.model.type.ArrayType;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Factory {
@@ -44,6 +46,7 @@ public class Factory {
     {
         return new BlackSmith(  position, images,0);
     }
+
 
 
     public static Obstacle createObstacle(

@@ -15,9 +15,9 @@ public abstract class Entity
     }
 
 
-    public  Point getPosition(){return position;}
-    public  void setPosition(Point position){this.position=position;}
-    public  PImage getCurrentImage(){return this.images.get(this.imageIndex);}
+    public Point getPosition(){return position;}
+    public void setPosition(Point position){this.position=position;}
+    public PImage getCurrentImage(){return this.images.get(this.imageIndex);}
 
     protected int getImageIndex() {
         return imageIndex;
