@@ -11,4 +11,6 @@ public class Flag extends Entity {
     {
         super(pos, images, imageIndex);
     }
+
+
 }
