@@ -155,6 +155,20 @@ public final class VirtualWorld extends PApplet
             world.addEntity(new Apple(new Point(pressed.x + 7, pressed.y + 3),
                     imageStore.getImageList("apple"), 0));
 
+            world.addEntity(new Sabzeh(new Point(pressed.x + 8, pressed.y + 3),
+                    imageStore.getImageList("sabzeh"), 0));
+
+            world.addEntity(new Somac(new Point(pressed.x + 9, pressed.y + 3),
+                    imageStore.getImageList("somac"), 0));
+
+            world.addEntity(new Samanu(new Point(pressed.x + 10, pressed.y + 3),
+                    imageStore.getImageList("samanu"), 0));
+
+            world.addEntity(new Senjed(new Point(pressed.x + 4, pressed.y + 4),
+                    imageStore.getImageList("senjed"), 0));
+
+            world.addEntity(new Vinegar(new Point(pressed.x + 5, pressed.y + 4),
+                    imageStore.getImageList("vinegar"), 0));
 
             is_pressed = true;
 
