@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 import processing.core.*;
@@ -137,18 +138,34 @@ public final class VirtualWorld extends PApplet
     // THIS ALL MIGHT MOVE TO A MOUSE CLASS!!!
 
 
-    // This just prints out the coordinate of a point.
+
 
     public void  mousePressed(){
 
         Point pressed = mouseToPoint(mouseX, mouseY);
+        Point temp_pressed = new Point(pressed.x, pressed.y);
+
         if (!is_pressed) {
 
-            world.addEntity(new Flag(pressed, imageStore.getImageList("iran"),
-                    0));
+            Background green = new Background("green",
+                    imageStore.getImageList("green"));
+            Background white = new Background("white",
+                    imageStore.getImageList("white"));
+
+            world.addEntity(new Fish(temp_pressed,
+                    imageStore.getImageList("fish"), 0));
+
             is_pressed = true;
 
         }
+
+        else {
+            boolean is_occupied = world.isOccupied(pressed);
+            Optional<Entity> entity = world.getOccupant(pressed);
+            System.out.println(is_occupied);
+            System.out.println(entity);
+        }
+
         System.out.println(pressed.x + " " + pressed.y);
     }
 
