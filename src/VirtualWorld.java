@@ -143,29 +143,14 @@ public final class VirtualWorld extends PApplet
     public void  mousePressed(){
 
         Point pressed = mouseToPoint(mouseX, mouseY);
-        Point temp_pressed = new Point(pressed.x, pressed.y);
 
         if (!is_pressed) {
 
-            Background green = new Background("green",
-                    imageStore.getImageList("green"));
-            Background white = new Background("white",
-                    imageStore.getImageList("white"));
-            Background red = new Background("red",
-                    imageStore.getImageList("red"));
+            Flag flag = new Flag(imageStore, world);
+            flag.makeFlag(new Point(pressed.x, pressed.y),
+                    "green", "white", "red");
 
-
-            for (int i = 0; i < 10; i++)
-            {
-                green.setBackground(world, temp_pressed);
-                white.setBackground(world,
-                        new Point(temp_pressed.x, temp_pressed.y + 1));
-                red.setBackground(world,
-                        new Point(temp_pressed.x, temp_pressed.y + 2));
-                temp_pressed.x += 1;
-            }
-
-            world.addEntity(new Fish(temp_pressed,
+            world.addEntity(new Fish(new Point(pressed.x + 5, pressed.y + 3),
                     imageStore.getImageList("fish"), 0));
 
             is_pressed = true;
@@ -175,8 +160,9 @@ public final class VirtualWorld extends PApplet
         else {
             boolean is_occupied = world.isOccupied(pressed);
             Optional<Entity> entity = world.getOccupant(pressed);
+            Entity entity1 = entity.get();
+            System.out.println(entity1.toString());
             System.out.println(is_occupied);
-            System.out.println(entity);
         }
 
         System.out.println(pressed.x + " " + pressed.y);

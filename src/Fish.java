@@ -9,4 +9,14 @@ public class Fish extends Obstacle {
     {
         super(pos, images, imageIndex);
     }
+
+    // Write the history of the fish
+    public String toString()
+    {
+        return "The fish represents movement and life.";
+    }
+
+
+
+
 }
