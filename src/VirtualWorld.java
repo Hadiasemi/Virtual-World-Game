@@ -161,9 +161,11 @@ public final class VirtualWorld extends PApplet
         }
 
         else {
-            Optional<Entity> entity = world.getOccupant(pressed);
-            Entity entity1 = entity.get();
-            System.out.println(entity1.toString());
+            if (world.isOccupied(pressed)) {
+                Optional<Entity> entity = world.getOccupant(pressed);
+                Entity entity1 = entity.get();
+                System.out.println(entity1.toString());
+            }
         }
 
         System.out.println(pressed.x + " " + pressed.y);
