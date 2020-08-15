@@ -47,6 +47,8 @@ public final class VirtualWorld extends PApplet
     private int dx = 0;
     private int dy = 0;
 
+    private boolean is_pressed = false;
+
     private long nextTime;
 
     public void settings() {
@@ -137,7 +139,6 @@ public final class VirtualWorld extends PApplet
 
     // This just prints out the coordinate of a point.
 
-    private boolean is_pressed = false;
     public void  mousePressed(){
 
         Point pressed = mouseToPoint(mouseX, mouseY);

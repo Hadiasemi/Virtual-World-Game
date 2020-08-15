@@ -38,7 +38,7 @@ public class Miner_Full extends EntityMiner{
         }
     }
 
-    protected   boolean move(
+    protected boolean move(
 
             WorldModel world,
             Entity target,
@@ -56,7 +56,7 @@ public class Miner_Full extends EntityMiner{
     }
 
 
-    public  void transformFull(
+    public void transformFull(
 
             WorldModel world,
             EventScheduler scheduler,
@@ -65,7 +65,7 @@ public class Miner_Full extends EntityMiner{
         Miner_Not_Full miner = Factory.createMinerNotFull(this.id,this.getResourceLimit(),this.getPosition(),
                 this.getActionPeriod(),this.getAnimationPeriod(),this.getImages());
 
-        _transform(world,scheduler,imageStore,miner);
+        _transform(world,scheduler,imageStore, miner);
     }
 
 
