@@ -146,29 +146,32 @@ public final class VirtualWorld extends PApplet
             flag.makeFlag(new Point(pressed.x, pressed.y),
                     "green", "white", "red");
 
-            world.addEntity(new Fish(new Point(pressed.x + 4, pressed.y + 3),
+            world.addEntity(new Fish(new Point(pressed.x + 1, pressed.y + 4),
                     imageStore.getImageList("fish"), 0));
 
-            world.addEntity(new Coin(new Point(pressed.x + 6, pressed.y + 3),
+            world.addEntity(new Coin(new Point(pressed.x + 3, pressed.y + 4),
                     imageStore.getImageList("coin"), 0));
 
-            world.addEntity(new Apple(new Point(pressed.x + 7, pressed.y + 3),
+            world.addEntity(new Apple(new Point(pressed.x + 4, pressed.y + 4),
                     imageStore.getImageList("apple"), 0));
 
-            world.addEntity(new Sabzeh(new Point(pressed.x + 8, pressed.y + 3),
+            world.addEntity(new Sabzeh(new Point(pressed.x + 5, pressed.y + 4),
                     imageStore.getImageList("sabzeh"), 0));
 
-            world.addEntity(new Somac(new Point(pressed.x + 9, pressed.y + 3),
+            world.addEntity(new Somac(new Point(pressed.x + 6, pressed.y + 4),
                     imageStore.getImageList("somac"), 0));
 
-            world.addEntity(new Samanu(new Point(pressed.x + 10, pressed.y + 3),
+            world.addEntity(new Samanu(new Point(pressed.x + 7, pressed.y + 4),
                     imageStore.getImageList("samanu"), 0));
 
-            world.addEntity(new Senjed(new Point(pressed.x + 4, pressed.y + 4),
+            world.addEntity(new Senjed(new Point(pressed.x + 9, pressed.y + 4),
                     imageStore.getImageList("senjed"), 0));
 
-            world.addEntity(new Vinegar(new Point(pressed.x + 5, pressed.y + 4),
+            world.addEntity(new Vinegar(new Point(pressed.x + 10, pressed.y + 4),
                     imageStore.getImageList("vinegar"), 0));
+
+            world.addEntity(new Garlic(new Point(pressed.x + 11, pressed.y + 4),
+                    imageStore.getImageList("garlic"), 0));
 
             is_pressed = true;
 
