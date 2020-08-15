@@ -43,4 +43,6 @@ public class Flag {
             pos.x += 1;
         }
     }
+
+
 }
