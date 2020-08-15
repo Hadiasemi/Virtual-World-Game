@@ -46,6 +46,8 @@ public final class WorldModel
         this.background[pos.y][pos.x] = background;
     }
 
+
+
     public  Background getBackgroundCell( Point pos) {
         return this.background[pos.y][pos.x];
     }
