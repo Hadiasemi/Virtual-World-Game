@@ -150,6 +150,7 @@ public final class VirtualWorld extends PApplet
                     imageStore.getImageList("goldfish"), 0, 990,
                     100);
             world.addEntity(fish);
+            fish.scheduleActions(scheduler,world,imageStore);
 
             world.addEntity(new Coin(new Point(pressed.x + 3, pressed.y + 4),
                     imageStore.getImageList("coin"), 0));
