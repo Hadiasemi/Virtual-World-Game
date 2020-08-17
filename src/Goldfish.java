@@ -1,7 +1,6 @@
 import processing.core.PImage;
 
 import java.util.List;
-import java.util.Optional;
 
 public class Goldfish extends EntityImage {
 
@@ -19,8 +18,24 @@ public class Goldfish extends EntityImage {
             ImageStore imageStore,
             EventScheduler scheduler)
     {
-        scheduler.scheduleEvent(this,
-                Factory.createAnimationAction(this, 4),0);
+        long nextPeriod = this.getActionPeriod();
+        scheduler.scheduleEvent( this,
+                Factory.createActivityAction(this, world, imageStore),
+                nextPeriod);
     }
+    public  void scheduleActions(
+
+            EventScheduler scheduler,
+            WorldModel world,
+            ImageStore imageStore)
+    {
+        super.scheduleActions(scheduler,world,imageStore);
+        scheduler.scheduleEvent( this, Factory.createAnimationAction(this,
+                10),
+                this.getAnimationPeriod());
+
+    }
+
+
 
 }

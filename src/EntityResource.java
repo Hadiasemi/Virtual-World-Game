@@ -7,7 +7,11 @@ public abstract class EntityResource extends EntityImage{
 
 
 
-    public EntityResource(Point position, List<PImage> images, int imageIndex, int actionPeriod, int animationPeriod) {
+    public EntityResource(Point position,
+                          List<PImage> images,
+                          int imageIndex,
+                          int actionPeriod,
+                          int animationPeriod) {
         super(position, images, imageIndex, actionPeriod, animationPeriod);
 
     }
@@ -27,7 +31,9 @@ public abstract class EntityResource extends EntityImage{
 
     }
 
-    protected  abstract boolean move(WorldModel world, Entity target,EventScheduler scheduler);
+    protected  abstract boolean move(WorldModel world,
+                                     Entity target,
+                                     EventScheduler scheduler);
 
     public  void scheduleActions(
             EventScheduler scheduler,

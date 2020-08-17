@@ -146,8 +146,10 @@ public final class VirtualWorld extends PApplet
             flag.makeFlag(new Point(pressed.x, pressed.y),
                     "green", "white", "red");
 
-            world.addEntity(new Fish(new Point(pressed.x + 1, pressed.y + 4),
-                    imageStore.getImageList("fish"), 0));
+            Goldfish fish = new Goldfish(new Point(pressed.x + 1, pressed.y + 4),
+                    imageStore.getImageList("goldfish"), 0, 990,
+                    100);
+            world.addEntity(fish);
 
             world.addEntity(new Coin(new Point(pressed.x + 3, pressed.y + 4),
                     imageStore.getImageList("coin"), 0));

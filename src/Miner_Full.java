@@ -8,13 +8,22 @@ public class Miner_Full extends EntityMiner{
       private String id;
 
 
-    public Miner_Full(Point position, List<PImage> images, int imageIndex, int actionPeriod, int animationPeriod, String id,int resourceLimit) {
-        super(position, images, imageIndex, actionPeriod, animationPeriod,resourceLimit);
+    public Miner_Full(Point position,
+                      List<PImage> images,
+                      int imageIndex,
+                      int actionPeriod,
+                      int animationPeriod,
+                      String id,
+                      int resourceLimit) {
+        super(position,
+                images,
+                imageIndex,
+                actionPeriod,
+                animationPeriod,
+                resourceLimit);
+
         this.id = id;
-
     }
-
-
 
 
     protected   void executeActivity(
@@ -48,7 +57,6 @@ public class Miner_Full extends EntityMiner{
             return true;
         }
         else {
-
             Point nextPos = nextPosition(world,target.getPosition());
             _move(world,scheduler,nextPos);
             return false;
@@ -62,13 +70,14 @@ public class Miner_Full extends EntityMiner{
             EventScheduler scheduler,
             ImageStore imageStore)
     {
-        Miner_Not_Full miner = Factory.createMinerNotFull(this.id,this.getResourceLimit(),this.getPosition(),
-                this.getActionPeriod(),this.getAnimationPeriod(),this.getImages());
+        Miner_Not_Full miner = Factory.createMinerNotFull(this.id,
+                this.getResourceLimit(),
+                this.getPosition(),
+                this.getActionPeriod(),
+                this.getAnimationPeriod(),
+                this.getImages());
 
         _transform(world,scheduler,imageStore, miner);
     }
-
-
-
 
 }
