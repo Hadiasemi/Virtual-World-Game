@@ -6,7 +6,11 @@ public abstract class EntityImage extends ActionEntity{
 
     private int animationPeriod;
 
-    public EntityImage(Point position, List<PImage> images, int imageIndex, int actionPeriod, int animationPeriod) {
+    public EntityImage(Point position,
+                       List<PImage> images,
+                       int imageIndex,
+                       int actionPeriod,
+                       int animationPeriod) {
         super(position, images, imageIndex, actionPeriod);
         this.animationPeriod = animationPeriod;
     }

@@ -18,11 +18,9 @@ public class Goldfish extends EntityImage {
             ImageStore imageStore,
             EventScheduler scheduler)
     {
-        long nextPeriod = this.getActionPeriod();
-        scheduler.scheduleEvent( this,
-                Factory.createActivityAction(this, world, imageStore),
-                nextPeriod);
+        this.scheduleActions(scheduler, world, imageStore);
     }
+
     public  void scheduleActions(
 
             EventScheduler scheduler,
@@ -31,11 +29,8 @@ public class Goldfish extends EntityImage {
     {
         super.scheduleActions(scheduler,world,imageStore);
         scheduler.scheduleEvent( this, Factory.createAnimationAction(this,
-                10),
+                0),
                 this.getAnimationPeriod());
 
     }
-
-
-
 }

@@ -141,43 +141,9 @@ public final class VirtualWorld extends PApplet
         Point pressed = mouseToPoint(mouseX, mouseY);
 
         if (!is_pressed) {
-
-            Flag flag = new Flag(imageStore, world);
-            flag.makeFlag(new Point(pressed.x, pressed.y),
-                    "green", "white", "red");
-
-            Goldfish fish = new Goldfish(new Point(pressed.x + 1, pressed.y + 4),
-                    imageStore.getImageList("goldfish"), 0, 990,
-                    100);
-            world.addEntity(fish);
-            fish.scheduleActions(scheduler,world,imageStore);
-
-            world.addEntity(new Coin(new Point(pressed.x + 3, pressed.y + 4),
-                    imageStore.getImageList("coin"), 0));
-
-            world.addEntity(new Apple(new Point(pressed.x + 4, pressed.y + 4),
-                    imageStore.getImageList("apple"), 0));
-
-            world.addEntity(new Sabzeh(new Point(pressed.x + 5, pressed.y + 4),
-                    imageStore.getImageList("sabzeh"), 0));
-
-            world.addEntity(new Somac(new Point(pressed.x + 6, pressed.y + 4),
-                    imageStore.getImageList("somac"), 0));
-
-            world.addEntity(new Samanu(new Point(pressed.x + 7, pressed.y + 4),
-                    imageStore.getImageList("samanu"), 0));
-
-            world.addEntity(new Senjed(new Point(pressed.x + 9, pressed.y + 4),
-                    imageStore.getImageList("senjed"), 0));
-
-            world.addEntity(new Vinegar(new Point(pressed.x + 10, pressed.y + 4),
-                    imageStore.getImageList("vinegar"), 0));
-
-            world.addEntity(new Garlic(new Point(pressed.x + 11, pressed.y + 4),
-                    imageStore.getImageList("garlic"), 0));
-
+            Factory.createEvent(world, imageStore, scheduler,
+                    pressed);
             is_pressed = true;
-
         }
 
         else {

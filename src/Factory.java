@@ -1,14 +1,78 @@
-import processing.core.PImage;
+import processing.core.*;
 
 import javax.lang.model.type.ArrayType;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Factory {
 
 
     public static final int QUAKE_ACTION_PERIOD = 1100;
     public static final int QUAKE_ANIMATION_PERIOD = 100;
+    private static Random rand = new Random();
+
+
+
+    public static void createEvent(WorldModel world,
+                              ImageStore imageStore,
+                              EventScheduler scheduler,
+                              Point pressed)
+    {
+
+        Flag flag = new Flag(imageStore, world);
+        flag.makeFlag(new Point(pressed.x, pressed.y),
+                "green", "white", "red");
+
+        // Creating an animated Goldfish entity.
+        Goldfish fish = new Goldfish(new Point(pressed.x + 1, pressed.y + 4),
+                imageStore.getImageList("goldfish"), 0, 990,
+                100);
+        // Scheduling its animation.
+        fish.executeActivity(world, imageStore, scheduler);
+        world.addEntity(fish);
+
+        for (int i = 0; i < 10; i++) {
+
+            Dancer dancer = new Dancer(new Point(rand.nextInt(39),
+                    rand.nextInt(39)),
+                    imageStore.getImageList("dancer"), 990, 100,
+                    0);
+            world.addEntity(dancer);
+            dancer.scheduleActions(scheduler, world, imageStore);
+        }
+
+
+        // Static entities, non-animated
+        world.addEntity(new Coin(new Point(pressed.x + 3, pressed.y + 4),
+                imageStore.getImageList("coin"), 0));
+
+        world.addEntity(new Apple(new Point(pressed.x + 4, pressed.y + 4),
+                imageStore.getImageList("apple"), 0));
+
+        world.addEntity(new Sabzeh(new Point(pressed.x + 5, pressed.y + 4),
+                imageStore.getImageList("sabzeh"), 0));
+
+        world.addEntity(new Somac(new Point(pressed.x + 6, pressed.y + 4),
+                imageStore.getImageList("somac"), 0));
+
+        world.addEntity(new Samanu(new Point(pressed.x + 7, pressed.y + 4),
+                imageStore.getImageList("samanu"), 0));
+
+        world.addEntity(new Senjed(new Point(pressed.x + 9, pressed.y + 4),
+                imageStore.getImageList("senjed"), 0));
+
+        world.addEntity(new Vinegar(new Point(pressed.x + 10, pressed.y + 4),
+                imageStore.getImageList("vinegar"), 0));
+
+        world.addEntity(new Garlic(new Point(pressed.x + 11, pressed.y + 4),
+                imageStore.getImageList("garlic"), 0));
+
+
+    }
+
+
+
     public static Miner_Full createMinerFull(
             String id,
             int resourceLimit,
