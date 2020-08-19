@@ -20,11 +20,13 @@ public class Factory {
                               Point pressed)
     {
 
+        // Create the flag
         Flag flag = new Flag(imageStore, world);
         flag.makeFlag(new Point(pressed.x, pressed.y),
                 "green", "white", "red");
 
-        // Creating an animated Goldfish entity.
+        // TESTING
+        // Created a static animated entity goldfish.
         Goldfish fish = new Goldfish(new Point(pressed.x + 1, pressed.y + 4),
                 imageStore.getImageList("goldfish"), 0, 990,
                 100);
@@ -32,6 +34,7 @@ public class Factory {
         fish.executeActivity(world, imageStore, scheduler);
         world.addEntity(fish);
 
+        // for loops to add dancers
         for (int i = 0; i < 10; i++) {
 
             Dancer dancer = new Dancer(new Point(rand.nextInt(39),
