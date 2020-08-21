@@ -12,6 +12,12 @@ public class Goldfish extends EntityImage {
     {
         super(position, images, imageIndex, actionPeriod, animationPeriod);
     }
+
+    @Override
+    public String toString() {
+        return  "Iranians put goldfishes in Haft-Seen to indicate that the New Year starts from this month.";
+    }
+
     protected void executeActivity(
             WorldModel world,
             ImageStore imageStore,
