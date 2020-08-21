@@ -12,8 +12,6 @@ public class Factory {
     public static final int QUAKE_ANIMATION_PERIOD = 100;
     private static Random rand = new Random();
 
-
-
     public static void createEvent(WorldModel world,
                               ImageStore imageStore,
                               EventScheduler scheduler,
@@ -26,27 +24,30 @@ public class Factory {
                 0,
                 990,
                 100);
-        world.removeEntityAt(new Point(pressed.x, pressed.y));
+
         Fire fire2 = new Fire(
                 new Point(pressed.x + 16, pressed.y),
                 imageStore.getImageList("fire"),
                 0,
                 990,
                 100);
-        world.removeEntityAt(new Point(pressed.x + 16, pressed.y));
+
         Fire fire3 = new Fire(
                 new Point(pressed.x, pressed.y + 10),
                 imageStore.getImageList("fire"),
                 0,
                 990,
                 100);
-        world.removeEntityAt(new Point(pressed.x, pressed.y + 10));
+
         Fire fire4 = new Fire(
                 new Point(pressed.x + 16, pressed.y + 10),
                 imageStore.getImageList("fire"),
                 0,
                 990,
                 100);
+        world.removeEntityAt(new Point(pressed.x, pressed.y));
+        world.removeEntityAt(new Point(pressed.x + 16, pressed.y));
+        world.removeEntityAt(new Point(pressed.x, pressed.y + 10));
         world.removeEntityAt(new Point(pressed.x + 16, pressed.y + 10));
         world.addEntity(fire1);
         world.addEntity(fire2);
