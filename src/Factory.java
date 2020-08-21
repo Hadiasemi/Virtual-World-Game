@@ -18,45 +18,73 @@ public class Factory {
                               Point pressed)
     {
         // Place fire
-        Fire fire1 = new Fire(
-                new Point(pressed.x, pressed.y),
-                imageStore.getImageList("fire"),
-                0,
-                990,
-                100);
+        Fire[]fire=new Fire[5];
+        Point[] point=new Point[5];
+        for(int i=1;i<5;i++){
+                switch (i){
+                    case 1:
+                        point[i]=new Point(pressed.x, pressed.y);
+                        break;
+                    case 2:
+                         point[i]=new Point(pressed.x+16, pressed.y );
+                         break;
+                    case 3:
+                        point[i]=new Point(pressed.x, pressed.y+10 );
+                        break;
+                    case 4:
+                        point[i]= new Point(pressed.x + 16, pressed.y + 10);
+                        break;
+                }
+                fire[i]= new Fire(
+                    point[i],
+                    imageStore.getImageList("fire"),
+                    0,
+                    990,
+                    100);
+            world.removeEntityAt(point[i]);
+            world.addEntity(fire[i]);
+            fire[i].scheduleActions(scheduler, world, imageStore);
 
-        Fire fire2 = new Fire(
-                new Point(pressed.x + 16, pressed.y),
-                imageStore.getImageList("fire"),
-                0,
-                990,
-                100);
-
-        Fire fire3 = new Fire(
-                new Point(pressed.x, pressed.y + 10),
-                imageStore.getImageList("fire"),
-                0,
-                990,
-                100);
-
-        Fire fire4 = new Fire(
-                new Point(pressed.x + 16, pressed.y + 10),
-                imageStore.getImageList("fire"),
-                0,
-                990,
-                100);
-        world.removeEntityAt(new Point(pressed.x, pressed.y));
-        world.removeEntityAt(new Point(pressed.x + 16, pressed.y));
-        world.removeEntityAt(new Point(pressed.x, pressed.y + 10));
-        world.removeEntityAt(new Point(pressed.x + 16, pressed.y + 10));
-        world.addEntity(fire1);
-        world.addEntity(fire2);
-        world.addEntity(fire3);
-        world.addEntity(fire4);
-        fire1.scheduleActions(scheduler, world, imageStore);
-        fire2.scheduleActions(scheduler, world, imageStore);
-        fire3.scheduleActions(scheduler, world, imageStore);
-        fire4.scheduleActions(scheduler, world, imageStore);
+        }
+//        Fire fire1 = new Fire(
+//                new Point(pressed.x, pressed.y),
+//                imageStore.getImageList("fire"),
+//                0,
+//                990,
+//                100);
+//
+//        Fire fire2 = new Fire(
+//                new Point(pressed.x + 16, pressed.y),
+//                imageStore.getImageList("fire"),
+//                0,
+//                990,
+//                100);
+//
+//        Fire fire3 = new Fire(
+//                new Point(pressed.x, pressed.y + 10),
+//                imageStore.getImageList("fire"),
+//                0,
+//                990,
+//                100);
+//
+//        Fire fire4 = new Fire(
+//                new Point(pressed.x + 16, pressed.y + 10),
+//                imageStore.getImageList("fire"),
+//                0,
+//                990,
+//                100);
+//        world.removeEntityAt(new Point(pressed.x, pressed.y));
+//        world.removeEntityAt(new Point(pressed.x + 16, pressed.y));
+//        world.removeEntityAt(new Point(pressed.x, pressed.y + 10));
+//        world.removeEntityAt(new Point(pressed.x + 16, pressed.y + 10));
+//        world.addEntity(fire1);
+//        world.addEntity(fire2);
+//        world.addEntity(fire3);
+//        world.addEntity(fire4);
+//        fire1.scheduleActions(scheduler, world, imageStore);
+//        fire2.scheduleActions(scheduler, world, imageStore);
+//        fire3.scheduleActions(scheduler, world, imageStore);
+//        fire4.scheduleActions(scheduler, world, imageStore);
 
 
         // Create the flag
