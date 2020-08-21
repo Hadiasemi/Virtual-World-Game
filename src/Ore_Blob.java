@@ -24,24 +24,31 @@ public class Ore_Blob extends EntityResource{
     {
         Optional<Entity> blobTarget =
                 world.findNearest( this.getPosition(), Vein.class);
-        long nextPeriod = this.getActionPeriod();
 
-        if (blobTarget.isPresent()) {
-            Point tgtPos = blobTarget.get().getPosition();
+        Optional<Entity> blobFire =
+                world.findNearest(this.getPosition(), Fire.class);
 
-            if (move( world, blobTarget.get(), scheduler)) {
-                Quake quake = Factory.createQuake(tgtPos,
-                        imageStore.getImageList( QUAKE_KEY));
+        if (!blobFire.isPresent())
+        {
+            long nextPeriod = this.getActionPeriod();
 
-                world.addEntity( quake);
-                nextPeriod += this.getActionPeriod();
-                quake.scheduleActions( scheduler, world, imageStore);
+            if (blobTarget.isPresent()) {
+                Point tgtPos = blobTarget.get().getPosition();
+
+                if (move( world, blobTarget.get(), scheduler)) {
+                    Quake quake = Factory.createQuake(tgtPos,
+                            imageStore.getImageList( QUAKE_KEY));
+
+                    world.addEntity( quake);
+                    nextPeriod += this.getActionPeriod();
+                    quake.scheduleActions( scheduler, world, imageStore);
+                }
             }
+            scheduler.scheduleEvent( this,
+                    Factory.createActivityAction(this, world, imageStore),
+                    nextPeriod);
         }
 
-        scheduler.scheduleEvent( this,
-                Factory.createActivityAction(this, world, imageStore),
-                nextPeriod);
     }
 
     protected   boolean move(

@@ -62,14 +62,14 @@ public class Dancer extends EntityResource {
             Optional<Entity> occupant = world.getOccupant(newPos);
 
             if (horiz == 0 || (occupant.isPresent() && !(occupant.get().getClass()
-                    == Ore.class)))
+                    == Fire.class)))
             {
                 int vert = Integer.signum(destPos.y - this.getPosition().y);
                 newPos = new Point(this.getPosition().x, this.getPosition().y + vert);
                 occupant = world.getOccupant( newPos);
 
                 if (vert == 0 || (occupant.isPresent() && !(occupant.get().getClass()
-                        == Ore.class)))
+                        == Fire.class)))
                 {
                     newPos = this.getPosition();
                 }
