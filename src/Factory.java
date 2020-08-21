@@ -19,16 +19,58 @@ public class Factory {
                               EventScheduler scheduler,
                               Point pressed)
     {
+        // Place fire
+        Fire fire1 = new Fire(
+                new Point(pressed.x, pressed.y),
+                imageStore.getImageList("fire"),
+                0,
+                990,
+                100);
+        world.removeEntityAt(new Point(pressed.x, pressed.y));
+        Fire fire2 = new Fire(
+                new Point(pressed.x + 16, pressed.y),
+                imageStore.getImageList("fire"),
+                0,
+                990,
+                100);
+        world.removeEntityAt(new Point(pressed.x + 16, pressed.y));
+        Fire fire3 = new Fire(
+                new Point(pressed.x, pressed.y + 10),
+                imageStore.getImageList("fire"),
+                0,
+                990,
+                100);
+        world.removeEntityAt(new Point(pressed.x, pressed.y + 10));
+        Fire fire4 = new Fire(
+                new Point(pressed.x + 16, pressed.y + 10),
+                imageStore.getImageList("fire"),
+                0,
+                990,
+                100);
+        world.removeEntityAt(new Point(pressed.x + 16, pressed.y + 10));
+        world.addEntity(fire1);
+        world.addEntity(fire2);
+        world.addEntity(fire3);
+        world.addEntity(fire4);
+        fire1.scheduleActions(scheduler, world, imageStore);
+        fire2.scheduleActions(scheduler, world, imageStore);
+        fire3.scheduleActions(scheduler, world, imageStore);
+        fire4.scheduleActions(scheduler, world, imageStore);
+
 
         // Create the flag
         Flag flag = new Flag(imageStore, world);
-        flag.makeFlag(new Point(pressed.x, pressed.y),
+        flag.makeFlag(
+                new Point(pressed.x + 1, pressed.y + 1),
                 "green", "white", "red");
 
         // TESTING
         // Created a static animated entity goldfish.
-        Goldfish fish = new Goldfish(new Point(pressed.x + 1, pressed.y + 4),
-                imageStore.getImageList("goldfish"), 0, 990,
+        Goldfish fish = new Goldfish(
+                new Point(pressed.x + 3, pressed.y + 5),
+                imageStore.getImageList("goldfish"),
+                0,
+                990,
                 100);
         // Scheduling its animation.
         fish.executeActivity(world, imageStore, scheduler);
@@ -36,7 +78,6 @@ public class Factory {
 
         // for loops to add dancers
         for (int i = 0; i < 10; i++) {
-
             Dancer dancer = new Dancer(new Point(rand.nextInt(39),
                     rand.nextInt(39)),
                     imageStore.getImageList("dancer"), 990, 100,
@@ -44,33 +85,30 @@ public class Factory {
             world.addEntity(dancer);
             dancer.scheduleActions(scheduler, world, imageStore);
         }
-
-
         // Static entities, non-animated
-        world.addEntity(new Coin(new Point(pressed.x + 3, pressed.y + 4),
+        world.addEntity(new Coin(new Point(pressed.x + 4, pressed.y + 5),
                 imageStore.getImageList("coin"), 0));
 
-        world.addEntity(new Apple(new Point(pressed.x + 4, pressed.y + 4),
+        world.addEntity(new Apple(new Point(pressed.x + 5, pressed.y + 5),
                 imageStore.getImageList("apple"), 0));
 
-        world.addEntity(new Sabzeh(new Point(pressed.x + 5, pressed.y + 4),
+        world.addEntity(new Sabzeh(new Point(pressed.x + 6, pressed.y + 5),
                 imageStore.getImageList("sabzeh"), 0));
 
-        world.addEntity(new Somac(new Point(pressed.x + 6, pressed.y + 4),
+        world.addEntity(new Somac(new Point(pressed.x + 7, pressed.y + 5),
                 imageStore.getImageList("somac"), 0));
 
-        world.addEntity(new Samanu(new Point(pressed.x + 7, pressed.y + 4),
+        world.addEntity(new Samanu(new Point(pressed.x + 8, pressed.y + 5),
                 imageStore.getImageList("samanu"), 0));
 
-        world.addEntity(new Senjed(new Point(pressed.x + 9, pressed.y + 4),
+        world.addEntity(new Senjed(new Point(pressed.x + 10, pressed.y + 5),
                 imageStore.getImageList("senjed"), 0));
 
-        world.addEntity(new Vinegar(new Point(pressed.x + 10, pressed.y + 4),
+        world.addEntity(new Vinegar(new Point(pressed.x + 11, pressed.y + 5),
                 imageStore.getImageList("vinegar"), 0));
 
-        world.addEntity(new Garlic(new Point(pressed.x + 11, pressed.y + 4),
+        world.addEntity(new Garlic(new Point(pressed.x + 12, pressed.y + 5),
                 imageStore.getImageList("garlic"), 0));
-
 
     }
 

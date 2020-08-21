@@ -79,6 +79,7 @@ public final class VirtualWorld extends PApplet
         scheduleActions(world, scheduler, imageStore);
 
         nextTime = System.currentTimeMillis() + TIMER_ACTION_PERIOD;
+        PFont f = createFont("Arial",16,true);
     }
 
     public void draw() {

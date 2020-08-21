@@ -22,7 +22,7 @@ public class Dancer extends EntityResource {
         {
             long nextPeriod = this.getActionPeriod();
             Optional<Entity> target =
-                    world.findNearest(this.getPosition(), Goldfish.class);
+                    world.findNearest(this.getPosition(), Fire.class);
 
             if (target.isPresent())
             {
