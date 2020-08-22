@@ -45,45 +45,7 @@ public class Factory {
             world.addEntity(fire[i]);
             fire[i].scheduleActions(scheduler, world, imageStore);
         }
-//        Fire fire1 = new Fire(
-//                new Point(pressed.x, pressed.y),
-//                imageStore.getImageList("fire"),
-//                0,
-//                990,
-//                100);
-//
-//        Fire fire2 = new Fire(
-//                new Point(pressed.x + 16, pressed.y),
-//                imageStore.getImageList("fire"),
-//                0,
-//                990,
-//                100);
-//
-//        Fire fire3 = new Fire(
-//                new Point(pressed.x, pressed.y + 10),
-//                imageStore.getImageList("fire"),
-//                0,
-//                990,
-//                100);
-//
-//        Fire fire4 = new Fire(
-//                new Point(pressed.x + 16, pressed.y + 10),
-//                imageStore.getImageList("fire"),
-//                0,
-//                990,
-//                100);
-//        world.removeEntityAt(new Point(pressed.x, pressed.y));
-//        world.removeEntityAt(new Point(pressed.x + 16, pressed.y));
-//        world.removeEntityAt(new Point(pressed.x, pressed.y + 10));
-//        world.removeEntityAt(new Point(pressed.x + 16, pressed.y + 10));
-//        world.addEntity(fire1);
-//        world.addEntity(fire2);
-//        world.addEntity(fire3);
-//        world.addEntity(fire4);
-//        fire1.scheduleActions(scheduler, world, imageStore);
-//        fire2.scheduleActions(scheduler, world, imageStore);
-//        fire3.scheduleActions(scheduler, world, imageStore);
-//        fire4.scheduleActions(scheduler, world, imageStore);
+
 
         MinerStatic[]miner=new MinerStatic[17];
         MinerStatic[]miner1=new MinerStatic[17];
