@@ -44,10 +44,26 @@ public class Ore_Blob extends EntityResource{
                     quake.scheduleActions( scheduler, world, imageStore);
                 }
             }
+
             scheduler.scheduleEvent( this,
                     Factory.createActivityAction(this, world, imageStore),
                     nextPeriod);
         }
+        else
+        {
+            OreBlobAffected blobAffected = new OreBlobAffected(
+                            this.getPosition(),
+                            imageStore.getImageList("blb"),
+                            this.getActionPeriod(),
+                            this.getAnimationPeriod(),
+                            this.getImageIndex()
+                    );
+
+            world.removeEntity(this);
+            world.addEntity(blobAffected);
+            blobAffected.scheduleActions(scheduler, world, imageStore);
+        }
+
 
     }
 
@@ -57,16 +73,35 @@ public class Ore_Blob extends EntityResource{
             Entity target,
             EventScheduler scheduler)
     {
-        if (adjacent(this.getPosition(), target.getPosition())) {
-            world.removeEntity(target);
-            scheduler.unscheduleAllEvents( target);
-            return true;
-        }
-        else {
-            Point nextPos = nextPositionOreBlob( world, target.getPosition());
+        Optional<Entity> blobFire =
+                world.findNearest(this.getPosition(), Fire.class);
 
-           _move(world,scheduler,nextPos);
-            return false;
+        if (!blobFire.isPresent()) {
+            if (adjacent(this.getPosition(), target.getPosition())) {
+                world.removeEntity(target);
+                scheduler.unscheduleAllEvents(target);
+                return true;
+            } else {
+                Point nextPos = nextPositionOreBlob(world, target.getPosition());
+
+                _move(world, scheduler, nextPos);
+                return false;
+            }
+        }
+        else
+        {
+            if (adjacent(this.getPosition(), target.getPosition()))
+            {
+                world.removeEntity(this);
+                scheduler.unscheduleAllEvents(this);
+                return true;
+            }
+            else
+            {
+                Point nextPos = nextPositionOreBlob(world, target.getPosition());
+                _move(world, scheduler, nextPos);
+                return false;
+            }
         }
     }
 

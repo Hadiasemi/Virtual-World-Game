@@ -102,4 +102,17 @@ dancer images/dancer52.bmp
 fire images/fire1.bmp
 fire images/fire2.bmp
 vein images/vein.bmp
+blb images/blb1.bmp 255 255 255 0
+blb images/blb2.bmp 255 255 255 0
+blb images/blb3.bmp 255 255 255 0
+blb images/blb4.bmp 255 255 255 0
+blb images/blb5.bmp 255 255 255 0
+blb images/blb6.bmp 255 255 255 0
+blb images/blb7.bmp 255 255 255 0
+blb images/blb8.bmp 255 255 255 0
+blb images/blb9.bmp 255 255 255 0
+blb images/blb10.bmp 255 255 255 0
+blb images/blb11.bmp 255 255 255 0
+blb images/blb12.bmp 255 255 255 0
+
 background_default images/none.bmp
