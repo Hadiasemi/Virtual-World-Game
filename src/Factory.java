@@ -127,7 +127,7 @@ public class Factory {
         for (int i = 0; i < 10; i++) {
             Dancer dancer = new Dancer(new Point(rand.nextInt(39),
                     rand.nextInt(39)),
-                    imageStore.getImageList("dancer"), 990, 100,
+                    imageStore.getImageList("dancer"), 2000, 100,
                     0);
             world.addEntity(dancer);
             dancer.scheduleActions(scheduler, world, imageStore);

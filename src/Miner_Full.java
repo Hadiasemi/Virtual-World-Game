@@ -35,15 +35,32 @@ public class Miner_Full extends EntityMiner{
         Optional<Entity> fullTarget =
                 world.findNearest( this.getPosition(), BlackSmith.class);
 
-        if (fullTarget.isPresent() && move( world,
-                fullTarget.get(), scheduler))
-        {
-            this.transformFull( world, scheduler, imageStore);
+        Optional <Entity> staticMiner =
+                world.findNearest(this.getPosition(), MinerStatic.class);
+
+        if (!staticMiner.isPresent()) {
+            if (fullTarget.isPresent() && move(world,
+                    fullTarget.get(), scheduler)) {
+                this.transformFull(world, scheduler, imageStore);
+            } else {
+                scheduler.scheduleEvent(this,
+                        Factory.createActivityAction(this, world, imageStore),
+                        this.getActionPeriod());
+            }
         }
-        else {
-            scheduler.scheduleEvent( this,
-                    Factory.createActivityAction(this, world, imageStore),
-                    this.getActionPeriod());
+        else
+        {
+            SillyMiner sillyMiner = new SillyMiner(
+                this.getPosition(),
+                imageStore.getImageList("miner"),
+                this.getActionPeriod(),
+                this.getAnimationPeriod(),
+                this.getImageIndex()
+        );
+
+            world.removeEntity(this);
+            world.addEntity(sillyMiner);
+            sillyMiner.scheduleActions(scheduler, world, imageStore);
         }
     }
 

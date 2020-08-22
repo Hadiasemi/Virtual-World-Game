@@ -25,9 +25,6 @@ public class Miner_Not_Full extends EntityMiner {
 
     }
 
-
-
-
     protected   void executeActivity(
 
             WorldModel world,
@@ -37,14 +34,34 @@ public class Miner_Not_Full extends EntityMiner {
         Optional<Entity> notFullTarget =
                 world.findNearest(this.getPosition(), Ore.class);
 
-        if (!notFullTarget.isPresent() || !move( world,
-                notFullTarget.get(),
-                scheduler)
-                || !transformNotFull( world, scheduler, imageStore))
+        Optional <Entity> staticMiner =
+                world.findNearest(this.getPosition(), MinerStatic.class);
+        if (!staticMiner.isPresent()) {
+
+            if (!notFullTarget.isPresent() || !move(world,
+                    notFullTarget.get(),
+                    scheduler)
+                    || !transformNotFull(world, scheduler, imageStore)) {
+                scheduler.scheduleEvent(this,
+                        Factory.createActivityAction(this, world, imageStore),
+                        this.getActionPeriod());
+            }
+        }
+        else
         {
-            scheduler.scheduleEvent( this,
-                    Factory.createActivityAction(this, world, imageStore),
-                    this.getActionPeriod());
+            SillyMiner sillyMiner = new SillyMiner(
+                    this.getPosition(),
+                    imageStore.getImageList("miner"),
+                    this.getActionPeriod(),
+                    this.getAnimationPeriod(),
+                    this.getImageIndex()
+            );
+
+            world.removeEntity(this);
+            world.addEntity(sillyMiner);
+            sillyMiner.scheduleActions(scheduler,
+                    world,
+                    imageStore);
         }
     }
 

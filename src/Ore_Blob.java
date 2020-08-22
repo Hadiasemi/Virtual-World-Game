@@ -54,7 +54,7 @@ public class Ore_Blob extends EntityResource{
             OreBlobAffected blobAffected = new OreBlobAffected(
                             this.getPosition(),
                             imageStore.getImageList("blb"),
-                            this.getActionPeriod(),
+                            2000,
                             this.getAnimationPeriod(),
                             this.getImageIndex()
                     );
