@@ -18,7 +18,7 @@ public class Factory {
                               Point pressed)
     {
         // Place fire
-        Fire[]fire=new Fire[5];
+        Fire[] fire=new Fire[5];
         Point[] point=new Point[5];
         for(int i=1;i<5;i++){
                 switch (i){
@@ -44,7 +44,6 @@ public class Factory {
             world.removeEntityAt(point[i]);
             world.addEntity(fire[i]);
             fire[i].scheduleActions(scheduler, world, imageStore);
-
         }
 //        Fire fire1 = new Fire(
 //                new Point(pressed.x, pressed.y),
@@ -85,6 +84,63 @@ public class Factory {
 //        fire2.scheduleActions(scheduler, world, imageStore);
 //        fire3.scheduleActions(scheduler, world, imageStore);
 //        fire4.scheduleActions(scheduler, world, imageStore);
+
+        MinerStatic[]miner=new MinerStatic[17];
+        MinerStatic[]miner1=new MinerStatic[17];
+        Point[]points=new Point[17];
+        Point[]points1=new Point[17];
+        for(int i=1;i<16;i++){
+            // miner in x directions top
+            points[i]=new Point(pressed.x+i, pressed.y);
+            miner[i]=new MinerStatic(points[i],
+                    imageStore.getImageList("miner"),0,
+                    990,
+                    100);
+            world.removeEntityAt(points[i]);
+            world.addEntity(miner[i]);
+            miner[i].scheduleActions(scheduler,world,imageStore);
+            //miner in x  directions lower
+
+            points1[i]=new Point(pressed.x+i, pressed.y+10);
+            miner1[i]=new MinerStatic(points1[i],
+                    imageStore.getImageList("miner"),0,
+                    990,
+                    100);
+            world.removeEntityAt(points1[i]);
+            world.addEntity(miner1[i]);
+            miner1[i].scheduleActions(scheduler,world,imageStore);
+
+        }
+
+        MinerStatic[]miner2=new MinerStatic[17];
+        MinerStatic[]miner3=new MinerStatic[17];
+        Point[]points2=new Point[17];
+        Point[]points3=new Point[17];
+        for(int i=1;i<10;i++){
+            // miner in y directions left
+            points2[i]=new Point(pressed.x, pressed.y+i);
+            miner2[i]=new MinerStatic(points2[i],
+                    imageStore.getImageList("miner"),0,
+                    990,
+                    100);
+            world.removeEntityAt(points2[i]);
+            world.addEntity(miner2[i]);
+            miner2[i].scheduleActions(scheduler,world,imageStore);
+            //miner in y  directions right side
+
+            points3[i]=new Point(pressed.x+16, pressed.y+i);
+            miner3[i]=new MinerStatic(points3[i],
+                    imageStore.getImageList("miner"),0,
+                    990,
+                    100);
+            world.removeEntityAt(points3[i]);
+            world.addEntity(miner3[i]);
+            miner3[i].scheduleActions(scheduler,world,imageStore);
+
+
+        }
+
+
 
 
         // Create the flag
