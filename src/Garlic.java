@@ -11,6 +11,6 @@ public class Garlic extends Entity {
     }
 
     public String toString() {
-        return "symbolizing medicine";
+        return "Seer (سیر): the symbol of health and medicine.";
     }
 }

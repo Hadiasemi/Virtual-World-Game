@@ -97,4 +97,10 @@ public class Miner_Full extends EntityMiner{
         _transform(world,scheduler,imageStore, miner);
     }
 
+    public String toString()
+    {
+        return "Soldier";
+    }
+
+
 }

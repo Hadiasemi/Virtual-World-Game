@@ -11,7 +11,7 @@ public class Apple extends Entity {
     }
 
     public String toString() {
-        return "symbolizing beauty and health";
+        return "Seeb (سیب): the symbol of beauty.";
     }
 
 }

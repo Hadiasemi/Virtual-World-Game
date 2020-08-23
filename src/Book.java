@@ -2,9 +2,8 @@ import processing.core.PImage;
 
 import java.util.List;
 
-public class Somac extends Entity {
-
-    public Somac(Point pos,
+public class Book extends Entity{
+    public Book(Point pos,
                   List<PImage> images,
                   int imageIndex)
     {
@@ -12,6 +11,6 @@ public class Somac extends Entity {
     }
 
     public String toString() {
-        return "Somāq (سماق): the symbol of sunrise.";
+        return "Book (کتاب): the symbol of wisdom.";
     }
 }

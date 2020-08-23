@@ -103,5 +103,9 @@ public class Miner_Not_Full extends EntityMiner {
 
         return false;
     }
+    public String toString()
+    {
+        return "Soldier";
+    }
 
 }

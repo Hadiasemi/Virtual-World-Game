@@ -2,13 +2,8 @@ import processing.core.PImage;
 
 import java.util.List;
 
- import processing.core.PImage;
-
- import java.util.List;
-
-public class Sabzeh extends Entity {
-
-    public Sabzeh(Point pos,
+public class Eggs extends Entity{
+    public Eggs(Point pos,
                 List<PImage> images,
                 int imageIndex)
     {
@@ -16,8 +11,6 @@ public class Sabzeh extends Entity {
     }
 
     public String toString() {
-        return "Sabzeh (سبزه): the symbol of rebirth and growth.";
+        return "Eggs (تخم\u200Cمرغ رنگی): the symbol of fertility.";
     }
 }
-
-

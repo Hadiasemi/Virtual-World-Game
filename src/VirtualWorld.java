@@ -138,7 +138,6 @@ public final class VirtualWorld extends PApplet
 
     // THIS ALL MIGHT MOVE TO A MOUSE CLASS!!!
     public void  mousePressed(){
-
         Point pressed = mouseToPoint(mouseX, mouseY);
 
         if (!is_pressed) {
@@ -152,10 +151,9 @@ public final class VirtualWorld extends PApplet
                 Optional<Entity> entity = world.getOccupant(pressed);
                 Entity entity1 = entity.get();
                 System.out.println(entity1.toString());
+                System.out.println("--------------------------------");
             }
         }
-
-        System.out.println(pressed.x + " " + pressed.y);
     }
 
     // This is the function that returns a point. This is the one

@@ -13,6 +13,6 @@ public class Samanu extends Entity {
 
 
     public String toString() {
-        return "symbolizing affluence";
+        return "Samanu (سمنو): the symbol of power and strength.";
     }
 }

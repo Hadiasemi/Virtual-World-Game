@@ -16,7 +16,7 @@ public class Senjed extends Entity {
     }
 
     public String toString() {
-        return "symbolizing love";
+        return "Senjed (سنجد): the symbol of love";
     }
 
 }

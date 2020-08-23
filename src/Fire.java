@@ -31,4 +31,11 @@ public class Fire extends EntityImage {
                 this.getAnimationPeriod());
 
     }
+    public String toString()
+    {
+        return "\"My yellow is yours, your red is mine.\" \n" +
+                "Is a Zoroastrian purification chant sung as you hop over\n" +
+                "a fire. Symbolically this means to get rid of any sickness\n" +
+                "and bad luck, and wish good luck and health in the new year.";
+    }
 }

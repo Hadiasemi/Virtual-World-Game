@@ -17,6 +17,12 @@ public class Factory {
                               EventScheduler scheduler,
                               Point pressed)
     {
+        System.out.println("Haft-sin or Haft-seen (Persian: هفت\u200Cسین\u200E) \n" +
+                "is an arrangement of seven symbolic items whose names start with the letter \"س\"\n " +
+                "pronounced as \"seen\" the 15th letter in the Persian alphabet; haft (هفت) is \n" +
+                "Persian for seven. It is traditionally displayed at Nowruz, the Iranian New Year,\n " +
+                "which is celebrated on the day of the vernal equinox, marking the beginning of spring \n" +
+                "on the Northern Hemisphere. ");
         // Place fire
         Fire[] fire=new Fire[5];
         Point[] point=new Point[5];
@@ -156,6 +162,21 @@ public class Factory {
 
         world.addEntity(new Garlic(new Point(pressed.x + 12, pressed.y + 5),
                 imageStore.getImageList("garlic"), 0));
+
+        world.addEntity(new Clock(new Point(pressed.x + 4, pressed.y + 6),
+                imageStore.getImageList("clock"), 0));
+
+        world.addEntity(new Book(new Point(pressed.x + 5, pressed.y + 6),
+                imageStore.getImageList("book"), 0));
+
+        world.addEntity(new Eggs(new Point(pressed.x + 6, pressed.y + 6),
+                imageStore.getImageList("eggs"), 0));
+
+        world.addEntity(new Candle(new Point(pressed.x + 7, pressed.y + 6),
+                imageStore.getImageList("candle"), 0));
+
+        world.addEntity(new Mirror(new Point(pressed.x + 8, pressed.y + 6),
+                imageStore.getImageList("mirror"), 0));
 
     }
 

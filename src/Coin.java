@@ -12,6 +12,6 @@ public class Coin extends Entity {
     }
 
     public String toString() {
-        return "";
+        return "Sekkeh (سکه): the symbol of wealth and prosperity.";
     }
 }

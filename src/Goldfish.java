@@ -15,7 +15,7 @@ public class Goldfish extends EntityImage {
 
     @Override
     public String toString() {
-        return  "Iranians put goldfishes in Haft-Seen to indicate that the New Year starts from this month.";
+        return  "goldfish (ماهی قرمز): the symbol of progress";
     }
 
     protected void executeActivity(

@@ -89,4 +89,9 @@ public class SillyMiner extends EntityResource {
 
         return newPos;
     }
+    public String toString()
+    {
+        return "Soldier";
+    }
+
 }
