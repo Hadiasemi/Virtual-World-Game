@@ -12,6 +12,6 @@ public class Vinegar extends Entity {
     }
 
     public String toString() {
-        return "symbolizing age and patience";
+        return "Vinegar (سرکه): symbolizing age and patience";
     }
 }
