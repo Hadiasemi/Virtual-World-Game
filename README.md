@@ -6,6 +6,7 @@ Persian for seven. It is traditionally displayed at Nowruz, the Iranian New Year
  which is celebrated on the day of the vernal equinox, marking the beginning of spring
 on the Northern Hemisphere.
 
+![Iran Flag](Flag.png)
 
 # Authors:
 
