@@ -17,12 +17,12 @@ public class Factory {
                               EventScheduler scheduler,
                               Point pressed)
     {
-        System.out.println("Haft-sin or Haft-seen (Persian: هفت\u200Cسین\u200E) \n" +
+        System.out.println("\nHaft-sin or Haft-seen (Persian: هفت\u200Cسین\u200E) \n" +
                 "is an arrangement of seven symbolic items whose names start with the letter \"س\"\n " +
                 "pronounced as \"seen\" the 15th letter in the Persian alphabet; haft (هفت) is \n" +
                 "Persian for seven. It is traditionally displayed at Nowruz, the Iranian New Year,\n " +
                 "which is celebrated on the day of the vernal equinox, marking the beginning of spring \n" +
-                "on the Northern Hemisphere. ");
+                "on the Northern Hemisphere.\n");
         // Place fire
         Fire[] fire=new Fire[5];
         Point[] point=new Point[5];
