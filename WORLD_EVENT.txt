@@ -1,0 +1,32 @@
+Persian New Year.
+
+1. How to trigger the event:
+	To trigger the event place your mouse where you would like the
+	upper left point of the flag to be. This will get rid off entities in a certain
+        radius of the flag.
+
+    After the event has triggered, players can click on objects to see their history and meaning.
+
+2. What should happen when the event is triggered?
+
+	The event causes an Iranian flag to drop, with a Haft-sin on the top. Additionally,
+	Flag Guards guard the flag. Dancers move towards the fires to dance according to tradition.
+	Blobs represent illness and are consumed by the fire.
+	More information about the Haft-Sin can be read in-game through the terminal.
+
+3. The affected Blobs turn into a diseased-red and sacrefice themselves to the Zoroastrinism 
+	purification fire. Miners turn into Soldiers that also kill straggler blobs.
+
+4. The new entity is a dancer who is supporting persian new year! They are randomly 
+generated around the world, and are in search of the fires to jump over.
+
+5. Nima Behmanesh, and Hadi Asemi
+
+
+Notes:
+	When an object is clicked on, you'll get a short little blirb about what that object represents.
+
+
+Known Bugs -
+
+-Index > 40 -> Happens so rarely was hard to figure out where it was coming from.
